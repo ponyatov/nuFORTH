@@ -1,0 +1,6 @@
+# Nuvoton FORTH high-level code part
+# (compile this system-independent to bytecode image)
+# also you can use it on Linux host with VM interpreter
+
+.save FORTH.bc
+

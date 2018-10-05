@@ -2,3 +2,9 @@
 *.swp
 *.log
 
+*.bc
+
+*.lex.c*
+*.yacc.c*
+
+ByteCompiler
