@@ -13,7 +13,6 @@
 
 using namespace std;
 
-//#include <cstdint>
 #include <cassert>
 
 #include "FORTH.h"
@@ -31,6 +30,7 @@ extern int yyparse();
 /// @brief syntax error callback
 /// @param[in] message string with message text generated in lexer or parser
 extern void yyerror(string message);
+
 #include "ByteCompiler.parser.hpp"
 
 #endif // _H_ByteCompiler

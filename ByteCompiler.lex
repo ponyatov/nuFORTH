@@ -14,6 +14,9 @@
 #[^\n]*			{}						// line comment
 [ \t\r\n]+		{}						// drop spaces
 
+nop				{ yylval.cmd0 = op_NOP; return CMD0; }
+bye				{ yylval.cmd0 = op_BYE; return CMD0; }
+
 \.save			return SAVE;
 [A-Z0-9_]+\.bc	{ yylval.bcfile = yytext; return BCFILE; }
 

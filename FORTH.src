@@ -4,5 +4,7 @@
 # compile this system-independent to bytecode image
 # (you can test it on Linux host with .VM interpreter)
 
-.save FORTH.bc
+		nop
+		bye
 
+.save FORTH.bc

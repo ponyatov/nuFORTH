@@ -10,3 +10,9 @@ int main(int argc, char *argv[]) {
 	return yyparse();
 }
 
+void save(char* filename) {
+	FILE *img = fopen(filename,"wb"); assert(img);
+	assert ( fwrite(M,Cp,1,img) == Cp );
+	fclose(img);	
+}
+

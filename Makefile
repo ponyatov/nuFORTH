@@ -1,9 +1,9 @@
 
 FORTH.bc: FORTH.src ./ByteCompiler
-	./ByteCompiler < $< > $<.log && od $@ >> $<.log
+	./ByteCompiler < $< > $<.log && hexdump -C $@ >> $<.log
 
-C += ByteCompiler.cpp ByteCompiler.parser.cpp ByteCompiler.lexer.cpp 
-H += ByteCompiler.hpp ByteCompiler.parser.hpp
+C += FORTH.c ByteCompiler.cpp ByteCompiler.parser.cpp ByteCompiler.lexer.cpp
+H += FORTH.h ByteCompiler.hpp ByteCompiler.parser.hpp
 
 CXXFLAGS += -std=gnu++11
 ./ByteCompiler: $(C) $(H)

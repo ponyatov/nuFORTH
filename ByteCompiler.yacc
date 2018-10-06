@@ -9,7 +9,7 @@
 %token <bcfile> BCFILE
 
 %%
-REPL : | REPL CMD0	{ cout << $2 << endl; }
+REPL : | REPL CMD0	{ Bcompile($2); }
 | REPL SAVE BCFILE	{ save($3); }
 %%
 
