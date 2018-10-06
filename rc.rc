@@ -1,5 +1,5 @@
 #!/bin/sh
 gvim -p FORTH.src FORTH.src.log \
 	ByteCompiler.lex ByteCompiler.yacc ByteCompiler.cpp ByteCompiler.hpp \
-	FORTH.h \
+	FORTH.h FORTH.c \
 	Makefile rc.rc 
