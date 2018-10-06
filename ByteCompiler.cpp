@@ -1,3 +1,5 @@
+/// @file
+
 #include "ByteCompiler.hpp"
 
 #define YYERR "\n\n"<<yylineno<<":"<<msg<<"["<<yytext<<"]\n\n"
