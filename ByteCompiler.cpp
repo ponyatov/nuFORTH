@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 
 void save(char* filename) {
 	FILE *img = fopen(filename,"wb"); assert(img);
-	assert ( fwrite(M,Cp,1,img) == Cp );
+	assert ( fwrite(M,1,Cp,img) == Cp );
 	fclose(img);	
 }
 

@@ -12,3 +12,7 @@ CELL Ip =0;			/* instruction pointer */
 
 CELL Cp =0; 		/* compiler pointer */
 
+void Bcompile(BYTE byte) {
+	M[Cp++] = byte;
+}
+

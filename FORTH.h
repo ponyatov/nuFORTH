@@ -75,5 +75,16 @@ extern void Bcompile(BYTE byte);
 
 /** }@ */
 
+/**
+	@defgroup cmds VM commands
+	@ingroup vm
+	@{
+*/
+
+#define	op_NOP	0x00
+#define op_BYE	0xFF
+
+/** }@ */
+
 #endif // _H_FORTH
 
