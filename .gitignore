@@ -4,7 +4,11 @@
 
 *.bc
 
-*.lex.c*
-*.yacc.c*
+*.lexer.*
+*.parser.*
 
 ByteCompiler
+
+html/
+
+doxygen_sqlite3.db
