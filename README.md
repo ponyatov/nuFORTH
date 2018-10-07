@@ -4,12 +4,12 @@
 
 github: https://github.com/ponyatov/NUC970_NonOS_BSP/tree/FORTH/ThirdParty/FORTH
 
-#   This a hardware command shell
-##  It is not an OS or FORTH system
+#   This is a *hardware command shell*
+##  it is not an OS or FORTH system
 ### Don't use it for programming
 
 This is a **stand-alone (bare-metal) command shell console** was done for debugging and 
-experimenting purposes with cool Nuvoton nuc976 SoC. 
+experimenting purposes with cool [Nuvoton nuc976 SoC](#nuc).
 
 The syntax and principle were grabbed from the FORTH programming language
 and OpenFirmware, though it does not follow any standard (it is more close to '83).
