@@ -13,6 +13,9 @@
 #define _H_FORTH
 
 #include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
 
 /**
 	@defgroup config Configuration
@@ -73,18 +76,36 @@ extern void save(char* filename);
 */
 extern void Bcompile(BYTE byte);
 
-/** }@ */
+/** @} */
 
-/**
-	@defgroup cmds VM commands
+/** @defgroup cmds VM commands
 	@ingroup vm
-	@{
-*/
+	@brief bytecode opcodes
+	@{							*/
 
 #define	op_NOP	0x00
 #define op_BYE	0xFF
 
-/** }@ */
+/** @defgroup VM command functions
+	@brief C functions implement every VM command
+	@{							*/
+
+extern void NOP();
+extern void BYE();
+
+/** @} */
+
+/** @} */
+
+/** @defgroup bci bytecode interpreter
+	@ingroup vm
+	@brief interprets bytecode in @ref M`[]`
+	@{ */
+
+/** @brief bytecode interpreter */
+extern void VM();
+
+/** @} */
 
 #endif // _H_FORTH
 

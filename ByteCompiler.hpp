@@ -13,8 +13,6 @@
 
 using namespace std;
 
-#include <cassert>
-
 #include "FORTH.h"
 
 /// @brief lexer interface
