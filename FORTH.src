@@ -4,9 +4,14 @@
 # compile this system-independent to bytecode image
 # (you can test it on Linux host with .VM interpreter)
 
-		nop
-		jmp		INIT
-		bye
+			nop
+			jmp		INIT
+BACKLABEL:
+			bye
+			jmp		BACKLABEL
+		
+INIT:		nop
+			bye
 
 .save FORTH.bc
 .vm

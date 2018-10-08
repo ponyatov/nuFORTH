@@ -28,10 +28,14 @@ extern std::map<std::string,std::vector<CELL>> forward;
 /// @brief compile label
 extern void Lcompile(std::string *name);
 
+/// @brief define label
+extern void Ldefine(std::string *name);
+
 /// @}
 
 /// @brief lexer interface
-/// @returns `int` token id + can return extra parsed data via @ref yylval structure to syntax parser 
+/// @returns `int` token id + can return extra parsed data
+///          via @ref yylval structure to syntax parser
 extern int yylex();
 
 extern int yylineno;

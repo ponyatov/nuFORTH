@@ -59,6 +59,15 @@ void JMP() {
 	assert(Ip<Cp);
 }
 
+void DUMP() {
+	for (CELL addr=0;addr < Cp; addr++) {
+		if (addr % 0x10 == 0) printf("\n%.8X:\t",addr);
+		else if (addr % 0x10 == 8) printf("- ");
+		printf("%.2X ",M[addr]);
+	}
+	printf("\n\n");
+}
+
 void VM() {
 	Ip=0;						/* reset Ip */
 	uint8_t op;					/* opcode register */

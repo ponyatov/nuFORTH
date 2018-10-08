@@ -115,6 +115,9 @@ extern void compile(CELL cell);
 
 #define op_JMP	0x01
 
+#define op_QUEST	0xD1
+#define op_DUMP		0xD1
+
 /** @defgroup vmcmd command functions
 	@ingroup vm
 	@brief C functions implement every VM command
@@ -128,6 +131,8 @@ extern void BYE();
 
 /** @brief 'jmp addr` unconditional jump */
 extern void JMP();
+
+extern void DUMP();
 
 /** @defgroup bci bytecode interpreter
 	@ingroup vm

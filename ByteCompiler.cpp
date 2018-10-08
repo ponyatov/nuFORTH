@@ -19,16 +19,22 @@ void save(char* filename) {
 	fclose(img);	
 }
 
-std::map<std::string,CELL> label;
-std::map<std::string,std::vector<CELL>> forward;
+std::map<std::string,CELL> label;					// existing labels table
+std::map<std::string,std::vector<CELL>> forward;	// forward refs table
 
 void Lcompile(std::string *name) {
 	if (label.find(*name) != label.end()) {		// if label name known
 		compile(label[*name]);					// compile its
 	} else {
-		if (forward.find(*name) == forward.end()) // if not find in forward[]
-			forward[*name] = std::vector<CELL>();		// create empty vector
-		forward[*name].push_back(Cp);		// push current Cp to forward list
-		compile(-1);						// compile dummy addr
+
+	if (forward.find(*name) == forward.end())	// if not find in forward[]
+		forward[*name] = std::vector<CELL>();	// create empty vector
+	forward[*name].push_back(Cp);				// register current Cp
+	compile(-1);								// compile dummy addr
+
 	}
+}
+
+void Ldefine(std::string *name) {
+	label[*name] = Cp;							// register new label
 }

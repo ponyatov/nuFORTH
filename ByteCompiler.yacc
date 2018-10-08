@@ -9,6 +9,7 @@
 %token <cmd0> CMD0
 %token <cmd1> CMD1
 %token <sym> SYM
+%token COLON
 %token SAVE dotVM
 %token <bcfile> BCFILE
 
@@ -16,6 +17,7 @@
 REPL :
 | REPL CMD0			{ Bcompile($2); }
 | REPL SAVE BCFILE	{ save($3); }
-| REPL dotVM		{ VM(); }
+| REPL dotVM		{ DUMP(); VM(); }
 | REPL CMD1 SYM		{ Bcompile($2); Lcompile($3); }
+| REPL SYM COLON	{ Ldefine($2); }
 %%
