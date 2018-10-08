@@ -2,7 +2,9 @@
 #include "ByteCompiler.hpp"
 %}
 
-%defines %union { uint8_t cmd0; uint32_t cmd1; char* bcfile; string* sym; }
+%defines %union {
+	uint8_t cmd0; uint32_t cmd1;
+	char* bcfile; std::string* sym; }
 
 %token <cmd0> CMD0
 %token <cmd1> CMD1

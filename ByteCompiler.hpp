@@ -13,8 +13,6 @@
 #include <map>
 #include <vector>
 
-using namespace std;
-
 #include "FORTH.h"
 
 /// @defgroup sym Symbol table
@@ -22,13 +20,13 @@ using namespace std;
 /// @{
 
 /// @brief code labels table
-extern map<string,CELL> label;
+extern std::map<std::string,CELL> label;
 
 /// @brief table of forward references
-extern map<string,vector<CELL>> forward;
+extern std::map<std::string,std::vector<CELL>> forward;
 
 /// @brief compile label
-extern void Lcompile(string *name);
+extern void Lcompile(std::string *name);
 
 /// @}
 
@@ -44,7 +42,7 @@ extern int yyparse();
 
 /// @brief syntax error callback
 /// @param[in] message string with message text generated in lexer or parser
-extern void yyerror(string message);
+extern void yyerror(std::string message);
 
 #include "ByteCompiler.parser.hpp"
 

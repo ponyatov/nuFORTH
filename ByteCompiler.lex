@@ -23,7 +23,7 @@ jmp				{ yylval.cmd1 = op_JMP; return CMD1; }
 \.save			{ return SAVE; }
 [A-Z0-9_]+\.bc	{ yylval.bcfile = yytext; return BCFILE; }
 
-[A-Z0-9_]+		{ yylval.sym = new string(yytext); return SYM; }
+[A-Z0-9_]+		{ yylval.sym = new std::string(yytext); return SYM; }
 
 .				{yyerror("lexer");}		// undetected char
 

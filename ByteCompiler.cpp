@@ -3,7 +3,10 @@
 #include "ByteCompiler.hpp"
 
 #define YYERR "\n\n"<<yylineno<<":"<<msg<<"["<<yytext<<"]\n\n"
-void yyerror(string msg) { cout << YYERR; cerr << YYERR; exit(-1); }
+void yyerror(std::string msg) {
+	std::cout << YYERR; std::cerr << YYERR;
+	exit(-1);
+}
 
 int main(int argc, char *argv[]) {
 //	assert (argc==3);
@@ -16,16 +19,16 @@ void save(char* filename) {
 	fclose(img);	
 }
 
-map<string,CELL> label;
-map<string,vector<CELL>> forward;
+std::map<std::string,CELL> label;
+std::map<std::string,std::vector<CELL>> forward;
 
-void Lcompile(string *name) {
+void Lcompile(std::string *name) {
 	if (label.find(*name) != label.end()) {		// if label name known
 		compile(label[*name]);					// compile its
 	} else {
-//		if (forward.find(*name) == forward.end()) // if not find in forward[]
-//			forward[*name] = new vector<CELL>;		// create empty vector
-//		forward[*name]->append(Cp);			// push current Cp to forward list
+		if (forward.find(*name) == forward.end()) // if not find in forward[]
+			forward[*name] = std::vector<CELL>();		// create empty vector
+		forward[*name].push_back(Cp);		// push current Cp to forward list
 		compile(-1);						// compile dummy addr
 	}
 }
