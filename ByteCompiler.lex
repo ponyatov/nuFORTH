@@ -17,9 +17,13 @@
 nop				{ yylval.cmd0 = op_NOP; return CMD0; }
 bye				{ yylval.cmd0 = op_BYE; return CMD0; }
 
+jmp				{ yylval.cmd1 = op_JMP; return CMD1; }
+
 \.vm			{ return dotVM; }
 \.save			{ return SAVE; }
 [A-Z0-9_]+\.bc	{ yylval.bcfile = yytext; return BCFILE; }
+
+[A-Z0-9_]+		{ yylval.sym = new string(yytext); return SYM; }
 
 .				{yyerror("lexer");}		// undetected char
 

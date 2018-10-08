@@ -10,10 +10,27 @@
 #define _H_ByteCompiler
 
 #include <iostream>
+#include <map>
+#include <vector>
 
 using namespace std;
 
 #include "FORTH.h"
+
+/// @defgroup sym Symbol table
+/// @ingroup bc
+/// @{
+
+/// @brief code labels table
+extern map<string,CELL> label;
+
+/// @brief table of forward references
+extern map<string,vector<CELL>> forward;
+
+/// @brief compile label
+extern void Lcompile(string *name);
+
+/// @}
 
 /// @brief lexer interface
 /// @returns `int` token id + can return extra parsed data via @ref yylval structure to syntax parser 

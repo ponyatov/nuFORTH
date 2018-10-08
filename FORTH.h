@@ -23,6 +23,16 @@
 	@{
 */
 
+/**
+  	@defgroup debug debug
+  	@{
+ */
+
+/** @brief print trace log while program excutes in VM emulator */
+#define VM_TRACELOG
+
+/** @} */
+
 /** @brief main memory size (bytes) */
 #define Msz 0x10000
 
@@ -48,7 +58,7 @@
 #define CELL uint32_t 
 
 /** @brief machine word size in bytes */
-#define CELLsz sizeof(CELL)
+#define CELLsz (sizeof(CELL))
 
 /** @} */
 
@@ -66,19 +76,36 @@ extern CELL Cp;
 */
 extern void save(char* filename);
 
+/** @defgroup mem memory access
+ * 	@ingroup vm
+ * 	@{ */
+
+/** @brief fetch VM machine word from @ref M address */
+extern CELL fetch(CELL addr);
+
+/** @brief store byte at @ref M address */
+extern void Bstore(CELL addr, BYTE byte);
+
+/** @brief store VM machine word at @ref M address */
+extern void store(CELL addr, CELL cell);
+
+/** @} */
+
 /** @defgroup compiler Compiler in VM
 	@brief Compiler implemented in VM commands
 	@ingroup vm
 	@{
 */
 
-/** @brief `B, ( byte -- ) ` compile byte
-*/
+/** @brief `B, ( byte -- )` compile byte */
 extern void Bcompile(BYTE byte);
+
+/** @brief `, ( cell -- )` compile cell */
+extern void compile(CELL cell);
 
 /** @} */
 
-/** @defgroup cmds VM commands
+/** @defgroup vmop command opcodes
 	@ingroup vm
 	@brief bytecode opcodes
 	@{							*/
@@ -86,16 +113,21 @@ extern void Bcompile(BYTE byte);
 #define	op_NOP	0x00
 #define op_BYE	0xFF
 
-/** @defgroup VM command functions
+#define op_JMP	0x01
+
+/** @defgroup vmcmd command functions
+	@ingroup vm
 	@brief C functions implement every VM command
 	@{							*/
 
+/** @brief `NOP ( -- )` no operation */
 extern void NOP();
+
+/** @brief `BYE ( -- )` stop system */
 extern void BYE();
 
-/** @} */
-
-/** @} */
+/** @brief 'jmp addr` unconditional jump */
+extern void JMP();
 
 /** @defgroup bci bytecode interpreter
 	@ingroup vm

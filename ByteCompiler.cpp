@@ -16,3 +16,16 @@ void save(char* filename) {
 	fclose(img);	
 }
 
+map<string,CELL> label;
+map<string,vector<CELL>> forward;
+
+void Lcompile(string *name) {
+	if (label.find(*name) != label.end()) {		// if label name known
+		compile(label[*name]);					// compile its
+	} else {
+//		if (forward.find(*name) == forward.end()) // if not find in forward[]
+//			forward[*name] = new vector<CELL>;		// create empty vector
+//		forward[*name]->append(Cp);			// push current Cp to forward list
+		compile(-1);						// compile dummy addr
+	}
+}

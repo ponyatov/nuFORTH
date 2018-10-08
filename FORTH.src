@@ -5,6 +5,7 @@
 # (you can test it on Linux host with .VM interpreter)
 
 		nop
+		jmp		INIT
 		bye
 
 .save FORTH.bc
