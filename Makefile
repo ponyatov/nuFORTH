@@ -1,3 +1,4 @@
+all: FORTH.bc
 
 FORTH.bc: FORTH.src ./ByteCompiler
 	./ByteCompiler < $< > $<.log && hexdump -C $@ >> $<.log
@@ -17,4 +18,3 @@ ByteCompiler.parser.cpp: ByteCompiler.yacc
 
 doxy: doxy.gen
 	doxygen $< 1> /dev/null
-
