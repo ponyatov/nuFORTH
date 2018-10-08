@@ -7,7 +7,5 @@
 		nop
 		bye
 
-.vm
-
 .save FORTH.bc
-
+.vm
