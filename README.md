@@ -2,7 +2,7 @@
 
 (c) Dmitry Ponyatov <<dponyatov@gmail.com>> , GNU Lesser GPL
 
-github: https://github.com/ponyatov/NUC970_NonOS_BSP/tree/FORTH/ThirdParty/FORTH
+github: https://github.com/ponyatov/nuFORTH
 
 #   This is a *hardware command shell*
 ##  it is not an OS or FORTH system
