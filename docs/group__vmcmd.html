@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ Collaboration diagram for command functions:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
 <tr class="memitem:group__bci"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bci.html">bytecode interpreter</a></td></tr>
-<tr class="memdesc:group__bci"><td class="mdescLeft">&#160;</td><td class="mdescRight">interprets bytecode in <a class="el" href="FORTH_8h.html#a914f01f44380c9cedf01116e3e07b902">M<code></code></a>[] <br /></td></tr>
+<tr class="memdesc:group__bci"><td class="mdescLeft">&#160;</td><td class="mdescRight">interprets bytecode in <a class="el" href="group__reg.html#ga914f01f44380c9cedf01116e3e07b902">M<code></code></a>[] <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -112,10 +113,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <tr class="separator:ga466ad873b93a79747acc77eae4b02522"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5e763b917908a1f3b722fba229dc1011"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5e763b917908a1f3b722fba229dc1011"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vmcmd.html#ga5e763b917908a1f3b722fba229dc1011">JMP</a> ()</td></tr>
-<tr class="memdesc:ga5e763b917908a1f3b722fba229dc1011"><td class="mdescLeft">&#160;</td><td class="mdescRight">'jmp addr` unconditional jump <br /></td></tr>
+<tr class="memdesc:ga5e763b917908a1f3b722fba229dc1011"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>jmp addr ( -- )</code> unconditional jump <br /></td></tr>
 <tr class="separator:ga5e763b917908a1f3b722fba229dc1011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd3f39483f1f2d1b149a2d0e0f1a6093"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacd3f39483f1f2d1b149a2d0e0f1a6093"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vmcmd.html#gacd3f39483f1f2d1b149a2d0e0f1a6093">CALL</a> ()</td></tr>
+<tr class="memdesc:gacd3f39483f1f2d1b149a2d0e0f1a6093"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>call addr ( -- ) (R: -- addr)</code> nested call <br /></td></tr>
+<tr class="separator:gacd3f39483f1f2d1b149a2d0e0f1a6093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c5be399fe9c201f020427bf4ab44f86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7c5be399fe9c201f020427bf4ab44f86"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vmcmd.html#ga7c5be399fe9c201f020427bf4ab44f86">RET</a> ()</td></tr>
+<tr class="memdesc:ga7c5be399fe9c201f020427bf4ab44f86"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>ret ( -- ) (R: addr -- )</code> return from nested call <br /></td></tr>
+<tr class="separator:ga7c5be399fe9c201f020427bf4ab44f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2d8bbd10604504845e9607df3d50d3b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2d8bbd10604504845e9607df3d50d3b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DUMP</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vmcmd.html#ga2d8bbd10604504845e9607df3d50d3b2">DUMP</a> ()</td></tr>
+<tr class="memdesc:ga2d8bbd10604504845e9607df3d50d3b2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>dump ( -- )</code> dump <a class="el" href="group__reg.html#ga914f01f44380c9cedf01116e3e07b902">M</a> bytecode until <a class="el" href="group__reg.html#ga9e209c80c1bce17a51f65a83248da385">Cp</a> <br /></td></tr>
 <tr class="separator:ga2d8bbd10604504845e9607df3d50d3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -123,7 +133,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DUMP</b> ()</td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 10 2018 23:49:08 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 11 2018 01:38:21 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lcompile',['Lcompile',['../group__sym.html#ga9c318b572d1251f1d7482dbb2e4ab95e',1,'ByteCompiler.hpp']]],
-  ['ldefine',['Ldefine',['../group__sym.html#gab559f395b82c042ac25a222a756d475e',1,'ByteCompiler.hpp']]]
+  ['jmp',['JMP',['../group__vmcmd.html#ga5e763b917908a1f3b722fba229dc1011',1,'JMP():&#160;FORTH.c'],['../group__vmcmd.html#ga5e763b917908a1f3b722fba229dc1011',1,'JMP():&#160;FORTH.c']]]
 ];

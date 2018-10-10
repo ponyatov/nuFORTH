@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,22 +95,22 @@ Collaboration diagram for memory access:</div>
 Functions</h2></td></tr>
 <tr class="memitem:gade37b7e25b4f793cfb29e5d2d0168eeb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gade37b7e25b4f793cfb29e5d2d0168eeb"></a>
 <a class="el" href="group__machinesize.html#ga8b4d4a1fcf419d5a3820c5b4b027ee8b">CELL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mem.html#gade37b7e25b4f793cfb29e5d2d0168eeb">fetch</a> (<a class="el" href="group__machinesize.html#ga8b4d4a1fcf419d5a3820c5b4b027ee8b">CELL</a> addr)</td></tr>
-<tr class="memdesc:gade37b7e25b4f793cfb29e5d2d0168eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetch VM machine word from <a class="el" href="FORTH_8h.html#a914f01f44380c9cedf01116e3e07b902">M</a> address <br /></td></tr>
+<tr class="memdesc:gade37b7e25b4f793cfb29e5d2d0168eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetch VM machine word from <a class="el" href="group__reg.html#ga914f01f44380c9cedf01116e3e07b902">M</a> address <br /></td></tr>
 <tr class="separator:gade37b7e25b4f793cfb29e5d2d0168eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac753a129a59e2442f47162978b594987"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac753a129a59e2442f47162978b594987"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mem.html#gac753a129a59e2442f47162978b594987">Bstore</a> (<a class="el" href="group__machinesize.html#ga8b4d4a1fcf419d5a3820c5b4b027ee8b">CELL</a> addr, <a class="el" href="group__machinesize.html#gaec93e83855ac17c3c25c55c37ca186dd">BYTE</a> byte)</td></tr>
-<tr class="memdesc:gac753a129a59e2442f47162978b594987"><td class="mdescLeft">&#160;</td><td class="mdescRight">store byte at <a class="el" href="FORTH_8h.html#a914f01f44380c9cedf01116e3e07b902">M</a> address <br /></td></tr>
+<tr class="memdesc:gac753a129a59e2442f47162978b594987"><td class="mdescLeft">&#160;</td><td class="mdescRight">store byte at <a class="el" href="group__reg.html#ga914f01f44380c9cedf01116e3e07b902">M</a> address <br /></td></tr>
 <tr class="separator:gac753a129a59e2442f47162978b594987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga89e7c7e8ec3248b3a75821477b69c9fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga89e7c7e8ec3248b3a75821477b69c9fb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mem.html#ga89e7c7e8ec3248b3a75821477b69c9fb">store</a> (<a class="el" href="group__machinesize.html#ga8b4d4a1fcf419d5a3820c5b4b027ee8b">CELL</a> addr, <a class="el" href="group__machinesize.html#ga8b4d4a1fcf419d5a3820c5b4b027ee8b">CELL</a> cell)</td></tr>
-<tr class="memdesc:ga89e7c7e8ec3248b3a75821477b69c9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">store VM machine word at <a class="el" href="FORTH_8h.html#a914f01f44380c9cedf01116e3e07b902">M</a> address <br /></td></tr>
+<tr class="memdesc:ga89e7c7e8ec3248b3a75821477b69c9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">store VM machine word at <a class="el" href="group__reg.html#ga914f01f44380c9cedf01116e3e07b902">M</a> address <br /></td></tr>
 <tr class="separator:ga89e7c7e8ec3248b3a75821477b69c9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 10 2018 23:49:08 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 11 2018 01:38:21 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

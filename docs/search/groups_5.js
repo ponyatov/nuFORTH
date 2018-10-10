@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['symbol_20table',['Symbol table',['../group__sym.html',1,'']]]
+  ['registers',['registers',['../group__reg.html',1,'']]]
 ];

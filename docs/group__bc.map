@@ -1,3 +1,4 @@
 <map id="Bytecode compiler" name="Bytecode compiler">
-<area shape="rect" id="node1" href="$group__sym.html" title="Symbol table" alt="" coords="184,5,283,32"/>
+<area shape="rect" id="node1" href="$group__sym.html" title="Symbol table" alt="" coords="186,5,285,32"/>
+<area shape="rect" id="node3" href="$group__parser.html" title="Syntax parser" alt="" coords="184,56,287,83"/>
 </map>

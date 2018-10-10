@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,29 +109,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="ByteCompiler_8hpp.html#aa40b27ae32d6d1ae7160bd6256e08eb8">yylex</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> yylineno;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span>* yytext;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="ByteCompiler_8hpp.html#a5e36364965360da7b7cdfc2188e0af84">yylineno</a>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="ByteCompiler_8hpp.html#acd8617a8f2ac0de8bc1cc032cf449e19">yyparse</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span>* <a class="code" href="ByteCompiler_8hpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="ByteCompiler_8hpp.html#a0ff4fca8a0fede6a2030a5e82cd9e5a6">yyerror</a>(std::string message);</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="ByteCompiler_8hpp.html#ad10d2e7c090d2c91fe23ea384cd6a023">   48</a></span>&#160;<span class="preprocessor">#define cmd0(OP) { yylval.cmd0 = OP; return CMD0; }</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define cmd1(OP) { yylval.cmd1 = OP; return CMD1; }</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;ByteCompiler.parser.hpp&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // _H_ByteCompiler</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="ttc" id="ByteCompiler_8hpp_html_acd8617a8f2ac0de8bc1cc032cf449e19"><div class="ttname"><a href="ByteCompiler_8hpp.html#acd8617a8f2ac0de8bc1cc032cf449e19">yyparse</a></div><div class="ttdeci">int yyparse()</div><div class="ttdoc">syntax parser interface </div></div>
-<div class="ttc" id="ByteCompiler_8hpp_html_a0ff4fca8a0fede6a2030a5e82cd9e5a6"><div class="ttname"><a href="ByteCompiler_8hpp.html#a0ff4fca8a0fede6a2030a5e82cd9e5a6">yyerror</a></div><div class="ttdeci">void yyerror(std::string message)</div><div class="ttdoc">syntax error callback </div></div>
-<div class="ttc" id="group__sym_html_ga512473d3339437dd805198bd3b8ce52e"><div class="ttname"><a href="group__sym.html#ga512473d3339437dd805198bd3b8ce52e">forward</a></div><div class="ttdeci">std::map&lt; std::string, std::vector&lt; CELL &gt; &gt; forward</div><div class="ttdoc">table of forward references </div></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="ByteCompiler_8hpp.html#acd8617a8f2ac0de8bc1cc032cf449e19">yyparse</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="ByteCompiler_8hpp.html#a0ff4fca8a0fede6a2030a5e82cd9e5a6">yyerror</a>(std::string message);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;ByteCompiler.parser.hpp&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // _H_ByteCompiler</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="ttc" id="ByteCompiler_8hpp_html_acd8617a8f2ac0de8bc1cc032cf449e19"><div class="ttname"><a href="ByteCompiler_8hpp.html#acd8617a8f2ac0de8bc1cc032cf449e19">yyparse</a></div><div class="ttdeci">int yyparse()</div><div class="ttdoc">syntax parser interface </div><div class="ttdef"><b>Definition:</b> ByteCompiler.parser.cpp:976</div></div>
+<div class="ttc" id="ByteCompiler_8hpp_html_a0ff4fca8a0fede6a2030a5e82cd9e5a6"><div class="ttname"><a href="ByteCompiler_8hpp.html#a0ff4fca8a0fede6a2030a5e82cd9e5a6">yyerror</a></div><div class="ttdeci">void yyerror(std::string message)</div><div class="ttdoc">syntax error callback </div><div class="ttdef"><b>Definition:</b> ByteCompiler.cpp:7</div></div>
+<div class="ttc" id="group__sym_html_ga512473d3339437dd805198bd3b8ce52e"><div class="ttname"><a href="group__sym.html#ga512473d3339437dd805198bd3b8ce52e">forward</a></div><div class="ttdeci">std::map&lt; std::string, std::vector&lt; CELL &gt; &gt; forward</div><div class="ttdoc">table of forward references </div><div class="ttdef"><b>Definition:</b> ByteCompiler.cpp:22</div></div>
 <div class="ttc" id="ByteCompiler_8hpp_html_aa40b27ae32d6d1ae7160bd6256e08eb8"><div class="ttname"><a href="ByteCompiler_8hpp.html#aa40b27ae32d6d1ae7160bd6256e08eb8">yylex</a></div><div class="ttdeci">int yylex()</div><div class="ttdoc">lexer interface </div></div>
-<div class="ttc" id="group__sym_html_gab559f395b82c042ac25a222a756d475e"><div class="ttname"><a href="group__sym.html#gab559f395b82c042ac25a222a756d475e">Ldefine</a></div><div class="ttdeci">void Ldefine(std::string *name)</div><div class="ttdoc">define label </div></div>
-<div class="ttc" id="group__sym_html_ga9c318b572d1251f1d7482dbb2e4ab95e"><div class="ttname"><a href="group__sym.html#ga9c318b572d1251f1d7482dbb2e4ab95e">Lcompile</a></div><div class="ttdeci">void Lcompile(std::string *name)</div><div class="ttdoc">compile label </div></div>
+<div class="ttc" id="ByteCompiler_8hpp_html_a35b96d819f6a8f8638894c429e68b02a"><div class="ttname"><a href="ByteCompiler_8hpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a></div><div class="ttdeci">char * yytext</div><div class="ttdoc">text part matched by lexer regexp </div><div class="ttdef"><b>Definition:</b> ByteCompiler.lexer.cpp:509</div></div>
+<div class="ttc" id="group__sym_html_gab559f395b82c042ac25a222a756d475e"><div class="ttname"><a href="group__sym.html#gab559f395b82c042ac25a222a756d475e">Ldefine</a></div><div class="ttdeci">void Ldefine(std::string *name)</div><div class="ttdoc">define label </div><div class="ttdef"><b>Definition:</b> ByteCompiler.cpp:37</div></div>
+<div class="ttc" id="group__sym_html_ga9c318b572d1251f1d7482dbb2e4ab95e"><div class="ttname"><a href="group__sym.html#ga9c318b572d1251f1d7482dbb2e4ab95e">Lcompile</a></div><div class="ttdeci">void Lcompile(std::string *name)</div><div class="ttdoc">compile label </div><div class="ttdef"><b>Definition:</b> ByteCompiler.cpp:24</div></div>
 <div class="ttc" id="FORTH_8h_html"><div class="ttname"><a href="FORTH_8h.html">FORTH.h</a></div><div class="ttdoc">global Virtual Machine headers (ANSI C&#39;89 code shared between byte compiler & embedded) ...</div></div>
-<div class="ttc" id="group__sym_html_ga54f9f2ce7f671a9c7d3e1a224f405107"><div class="ttname"><a href="group__sym.html#ga54f9f2ce7f671a9c7d3e1a224f405107">label</a></div><div class="ttdeci">std::map&lt; std::string, CELL &gt; label</div><div class="ttdoc">code labels table </div></div>
+<div class="ttc" id="ByteCompiler_8hpp_html_a5e36364965360da7b7cdfc2188e0af84"><div class="ttname"><a href="ByteCompiler_8hpp.html#a5e36364965360da7b7cdfc2188e0af84">yylineno</a></div><div class="ttdeci">int yylineno</div><div class="ttdoc">current line number </div><div class="ttdef"><b>Definition:</b> ByteCompiler.lexer.cpp:375</div></div>
+<div class="ttc" id="group__sym_html_ga54f9f2ce7f671a9c7d3e1a224f405107"><div class="ttname"><a href="group__sym.html#ga54f9f2ce7f671a9c7d3e1a224f405107">label</a></div><div class="ttdeci">std::map&lt; std::string, CELL &gt; label</div><div class="ttdoc">code labels table </div><div class="ttdef"><b>Definition:</b> ByteCompiler.cpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 10 2018 23:49:08 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 11 2018 01:38:21 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

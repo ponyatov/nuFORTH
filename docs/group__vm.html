@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,7 +90,7 @@ Collaboration diagram for FORTH Virtual Machine:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="group__vm.png" border="0" alt="" usemap="#group____vm"/>
 <map name="group____vm" id="group____vm">
-<area shape="rect" id="node1" href="group__compiler.html" title="Compiler implemented in VM commands. " alt="" coords="229,5,341,32"/><area shape="rect" id="node2" href="group__mem.html" title="memory access" alt="" coords="227,56,342,83"/><area shape="rect" id="node3" href="group__bci.html" title="interprets bytecode in M[] " alt="" coords="216,107,353,133"/><area shape="rect" id="node4" href="group__vmop.html" title="bytecode opcodes " alt="" coords="219,157,351,184"/><area shape="rect" id="node5" href="group__machinesize.html" title="size constants " alt="" coords="233,208,336,235"/><area shape="rect" id="node6" href="group__vmcmd.html" title="C functions implement every VM command. " alt="" coords="217,259,353,285"/><area shape="rect" id="node7" href="group__config.html" title="Configuration" alt="" coords="235,309,334,336"/></map>
+<area shape="rect" id="node1" href="group__compiler.html" title="Compiler implemented in VM commands. " alt="" coords="229,5,341,32"/><area shape="rect" id="node2" href="group__mem.html" title="memory access" alt="" coords="227,56,342,83"/><area shape="rect" id="node3" href="group__bci.html" title="interprets bytecode in M[] " alt="" coords="216,107,353,133"/><area shape="rect" id="node4" href="group__vmop.html" title="bytecode opcodes " alt="" coords="219,157,351,184"/><area shape="rect" id="node5" href="group__machinesize.html" title="size constants " alt="" coords="233,208,336,235"/><area shape="rect" id="node6" href="group__reg.html" title="VM registers and memory areas. " alt="" coords="249,259,321,285"/><area shape="rect" id="node7" href="group__vmcmd.html" title="C functions implement every VM command. " alt="" coords="217,309,353,336"/><area shape="rect" id="node8" href="group__config.html" title="Configuration" alt="" coords="235,360,334,387"/></map>
 </td></tr></table></center>
 </div>
 <table class="memberdecls">
@@ -99,6 +100,9 @@ Modules</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__machinesize"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__machinesize.html">machine word</a></td></tr>
 <tr class="memdesc:group__machinesize"><td class="mdescLeft">&#160;</td><td class="mdescRight">size constants <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group__reg"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__reg.html">registers</a></td></tr>
+<tr class="memdesc:group__reg"><td class="mdescLeft">&#160;</td><td class="mdescRight">VM registers and memory areas. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__mem"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mem.html">memory access</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,7 +116,7 @@ Modules</h2></td></tr>
 <tr class="memdesc:group__vmcmd"><td class="mdescLeft">&#160;</td><td class="mdescRight">C functions implement every VM command. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__bci"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bci.html">bytecode interpreter</a></td></tr>
-<tr class="memdesc:group__bci"><td class="mdescLeft">&#160;</td><td class="mdescRight">interprets bytecode in <a class="el" href="FORTH_8h.html#a914f01f44380c9cedf01116e3e07b902">M<code></code></a>[] <br /></td></tr>
+<tr class="memdesc:group__bci"><td class="mdescLeft">&#160;</td><td class="mdescRight">interprets bytecode in <a class="el" href="group__reg.html#ga914f01f44380c9cedf01116e3e07b902">M<code></code></a>[] <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -120,7 +124,7 @@ Modules</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 10 2018 23:49:08 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 11 2018 01:38:21 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

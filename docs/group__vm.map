@@ -4,6 +4,7 @@
 <area shape="rect" id="node3" href="$group__bci.html" title="interprets bytecode in M[] " alt="" coords="216,107,353,133"/>
 <area shape="rect" id="node4" href="$group__vmop.html" title="bytecode opcodes " alt="" coords="219,157,351,184"/>
 <area shape="rect" id="node5" href="$group__machinesize.html" title="size constants " alt="" coords="233,208,336,235"/>
-<area shape="rect" id="node6" href="$group__vmcmd.html" title="C functions implement every VM command. " alt="" coords="217,259,353,285"/>
-<area shape="rect" id="node7" href="$group__config.html" title="Configuration" alt="" coords="235,309,334,336"/>
+<area shape="rect" id="node6" href="$group__reg.html" title="VM registers and memory areas. " alt="" coords="249,259,321,285"/>
+<area shape="rect" id="node7" href="$group__vmcmd.html" title="C functions implement every VM command. " alt="" coords="217,309,353,336"/>
+<area shape="rect" id="node8" href="$group__config.html" title="Configuration" alt="" coords="235,360,334,387"/>
 </map>

@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Modules</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,6 +112,15 @@ Macros</h2></td></tr>
 <tr class="memitem:ga11f6dba9f3fb5162929fd2b561701c82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga11f6dba9f3fb5162929fd2b561701c82"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>op_JMP</b>&#160;&#160;&#160;0x01</td></tr>
 <tr class="separator:ga11f6dba9f3fb5162929fd2b561701c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga545414e056fc73471e92b113d321e493"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga545414e056fc73471e92b113d321e493"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>op_qJMP</b>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:ga545414e056fc73471e92b113d321e493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06aa6c14a3518a8642be9d457257a031"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga06aa6c14a3518a8642be9d457257a031"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>op_CALL</b>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:ga06aa6c14a3518a8642be9d457257a031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf58828713825755b6d8b71b384a23166"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf58828713825755b6d8b71b384a23166"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>op_RET</b>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:gaf58828713825755b6d8b71b384a23166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2f91172289fc030afd68ebcb6f4c2bac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2f91172289fc030afd68ebcb6f4c2bac"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>op_QUEST</b>&#160;&#160;&#160;0xD1</td></tr>
 <tr class="separator:ga2f91172289fc030afd68ebcb6f4c2bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,7 +133,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 10 2018 23:49:08 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 11 2018 01:38:21 for Nuvoton FORTH by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
