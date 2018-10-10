@@ -1,4 +1,5 @@
 /// @file
+/// @brief C++ implementation of bytecode compiler and VM emulator for desktop
 
 #include "ByteCompiler.hpp"
 
@@ -8,10 +9,8 @@ void yyerror(std::string msg) {
 	exit(-1);
 }
 
-int main(int argc, char *argv[]) {
-//	assert (argc==3);
-	return yyparse();
-}
+/// @brief program entry point, do nothing, just run ByteCompiler only
+int main() { return yyparse(); }
 
 void save(char* filename) {
 	FILE *img = fopen(filename,"wb"); assert(img);
@@ -37,4 +36,10 @@ void Lcompile(std::string *name) {
 
 void Ldefine(std::string *name) {
 	label[*name] = Cp;							// register new label
+	printf("%.8X:\t%s\n",Cp,name->c_str());		// dump symbol table
+	auto fw = forward.find(*name);				// resolve forward references
+	if ( fw != forward.end() )
+		for (auto it = fw->second.begin(); it != fw->second.end(); it++ )
+			store(*it,Cp);
 }
+

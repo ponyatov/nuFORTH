@@ -38,8 +38,15 @@ extern void Ldefine(std::string *name);
 ///          via @ref yylval structure to syntax parser
 extern int yylex();
 
+/// @brief current line number
 extern int yylineno;
+
+/// @brief text part matched by lexer regexp
 extern char* yytext;
+
+/// @brief zero paramater command macro used in .lex
+#define cmd0(OP) { yylval.cmd0 = OP; return CMD0; }
+#define cmd1(OP) { yylval.cmd1 = OP; return CMD1; }
 
 /// @brief syntax parser interface
 extern int yyparse();

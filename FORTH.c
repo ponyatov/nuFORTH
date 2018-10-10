@@ -12,6 +12,9 @@ CELL Ip =0;						/* instruction pointer */
 
 CELL Cp =0; 					/* compiler pointer */
 
+CELL R[Rsz];					/* return stack */
+CELL Rp =0;
+
 void Bcompile(BYTE byte) {
 	Bstore(Cp,byte); Cp++;
 }
@@ -54,9 +57,25 @@ void BYE() {
 void JMP() {
 	Ip = fetch(Ip);
 	#ifdef VM_TRACELOG
-		printf("jmp\t%.8X",Ip);
+		printf("jmp \t%.8X",Ip);
 	#endif
 	assert(Ip<Cp);
+}
+
+void CALL() {
+	R[Rp++] = Ip + CELLsz; assert(Rp<Rsz);
+	Ip = fetch(Ip);
+	#ifdef VM_TRACELOG
+		printf("call\t%.8X",Ip);
+	#endif
+	assert(Ip<Cp);
+}
+
+void RET() {
+	#ifdef VM_TRACELOG
+		printf("ret");
+	#endif
+	assert(Rp>0); Ip = R[--Rp]; assert(Ip<Cp);
 }
 
 void DUMP() {
@@ -77,16 +96,16 @@ void VM() {
 			printf("\n%.8X:\t%.2X\t",Ip-1,op);
 		#endif
 		switch (op) {			/* we'll move to command function table later */
-			case op_NOP: NOP(); break;
-			case op_BYE: BYE(); break;
-			case op_JMP: JMP(); break;
+			case op_NOP:  NOP();  break;
+			case op_BYE:  BYE();  break;
+			case op_JMP:  JMP();  break;
+			case op_CALL: CALL(); break;
+			case op_RET:  RET();  break;
 			default:
-				#ifdef VM_TRACELOG
-					printf("undefined opcode\n\n");
-				#else
-					fprintf(stderr,"\n%.8X:\t%.2X\tundefined opcode\n\n",Ip-1,op);
-				#endif
-				abort();
+			#ifdef VM_TRACELOG
+			printf("\t<undefined opcode>\n\n");
+			#endif
+			abort();
 		}
 	}
 }

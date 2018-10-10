@@ -8,10 +8,13 @@
 			jmp		INIT
 BACKLABEL:
 			bye
-			jmp		BACKLABEL
+			call	BACKLABEL
 		
 INIT:		nop
+			call	SUBR
 			bye
+
+SUBR:		ret
 
 .save FORTH.bc
 .vm
