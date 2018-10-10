@@ -1,0 +1,4 @@
+<map id="bytecode interpreter" name="bytecode interpreter">
+<area shape="rect" id="node2" href="$group__vmcmd.html" title="C functions implement every VM command. " alt="" coords="19,5,155,32"/>
+<area shape="rect" id="node3" href="$group__vm.html" title="Platform independent part of Virtual Machine shared by VM part for all systems (host, qemu, nuc970 hw) " alt="" coords="5,56,168,83"/>
+</map>

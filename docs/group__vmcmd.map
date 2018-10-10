@@ -1,0 +1,5 @@
+<map id="command functions" name="command functions">
+<area shape="rect" id="node1" href="$group__bci.html" title="interprets bytecode in M[] " alt="" coords="400,31,537,57"/>
+<area shape="rect" id="node2" href="$group__vmop.html" title="bytecode opcodes " alt="" coords="21,5,153,32"/>
+<area shape="rect" id="node4" href="$group__vm.html" title="Platform independent part of Virtual Machine shared by VM part for all systems (host, qemu, nuc970 hw) " alt="" coords="5,56,168,83"/>
+</map>
