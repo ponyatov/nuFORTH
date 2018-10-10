@@ -1,4 +1,4 @@
-all: doxy FORTH.bc
+all: FORTH.bc
 
 FORTH.bc: FORTH.src ./ByteCompiler
 	./ByteCompiler < $< > $<.log && hexdump -C $@ >> $<.log

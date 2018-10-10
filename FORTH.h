@@ -62,6 +62,11 @@
 
 /** @} */
 
+/** @defgroup reg registers
+	@brief VM registers and memory areas
+	@ingroup vm
+	@{ */
+
 /** @brief bytecode memory */
 extern BYTE M[Msz];
 
@@ -70,6 +75,13 @@ extern CELL Ip;
 
 /** @brief compiler pointer */
 extern CELL Cp;
+
+/** @brief return stack for `call`/`ret` */
+extern CELL R[Rsz];
+/** @brief return stack pointer */
+extern CELL Rp;
+
+/** @} */
 
 /** @brief save compiled vocabular memory to file
 @param[in] filename filename (ignored in embedded without file system support)
@@ -114,6 +126,9 @@ extern void compile(CELL cell);
 #define op_BYE	0xFF
 
 #define op_JMP	0x01
+#define op_qJMP 0x02
+#define op_CALL 0x03
+#define op_RET  0x04
 
 #define op_QUEST	0xD1
 #define op_DUMP		0xD1
@@ -129,9 +144,16 @@ extern void NOP();
 /** @brief `BYE ( -- )` stop system */
 extern void BYE();
 
-/** @brief 'jmp addr` unconditional jump */
+/** @brief `jmp addr ( -- )` unconditional jump */
 extern void JMP();
 
+/** @brief `call addr ( -- ) (R: -- addr)` nested call */
+extern void CALL();
+
+/** @brief `ret ( -- ) (R: addr -- )` return from nested call */
+extern void RET();
+
+/** @brief `dump ( -- )` dump @ref M bytecode until @ref Cp */
 extern void DUMP();
 
 /** @defgroup bci bytecode interpreter
