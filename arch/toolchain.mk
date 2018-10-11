@@ -28,7 +28,7 @@ GDB_GZ			= $(GDB).tar.xz
 CWD		= $(CURDIR)
 GZ		= $(HOME)/gz
 TMP		= $(HOME)/tmp
-SRC		= $(CWD)/src
+SRC		= $(TMP)/src
 SYS		= $(CWD)/sysroot
 CROSS	= $(CWD)/cross
 
