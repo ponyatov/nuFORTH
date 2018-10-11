@@ -1,0 +1,5 @@
+# MIPS32
+
+* RT5350F
+	* Hilink HLK-RM04
+
