@@ -36,21 +36,26 @@ XPATH			= PATH=$(CROSS)/bin:$(PATH)
 
 CFG_ALL 		= --disable-nls --prefix=$(CROSS)
 
-BINUTILS_CFG	= --with-sysroot=$(SYS) --enable-lto --target=$(TARGET)
+BINUTILS_CFG	= --with-sysroot=$(SYS) --with-native-system-header-dir=/include  \
+				  --enable-lto --target=$(TARGET) $(CFG_CPU)
 
-GCC_CFG			= $(BINUTILS_CFG) --without-headers --with-newlib --enable-languages="c"
+GCC_CFG			= $(BINUTILS_CFG) --enable-languages="c" \
+					--disable-shared --disable-threads \
+					--without-headers --with-newlib \
+					--disable-bootstrap 
 
 # build cross compiler (local)
 
-gcc: $(CROSS)/bin/$(TARGET)-gcc binutils
-$(CROSS)/bin/$(TARGET)-gcc: $(SRC)/$(GCC)/configure
-	rm -rf $(TMP)/gcc ; mkdir $(TMP)/gcc ; cd $(TMP)/gcc ;\
-		$(XPATH) $< $(CFG_ALL) $(GCC_CFG) && $(MAKE) && $(MAKE) install
-
-binutils: $(CROSS)/bin/$(TARGET)-ld
-$(CROSS)/bin/i386-elf-ld: $(SRC)/$(BINUTILS)/configure
+binutils: $(SRC)/$(BINUTILS)/configure
 	rm -rf $(TMP)/binutils ; mkdir $(TMP)/binutils ; cd $(TMP)/binutils ;\
-		$(XPATH) $< $(CFG_ALL) $(BINUTILS_CFG) && $(MAKE) && $(MAKE) install
+		$(XPATH) $< $(CFG_ALL) $(BINUTILS_CFG) &&\
+			$(MAKE) -j4 && $(MAKE) install
+
+gcc: $(SRC)/$(GCC)/configure
+	rm -rf $(TMP)/gcc ; mkdir $(TMP)/gcc ; cd $(TMP)/gcc ;\
+		$(XPATH) $< $(CFG_ALL) $(GCC_CFG) &&\
+			$(MAKE) -j4 all-gcc && $(MAKE) install-gcc &&\
+			$(MAKE) -j4 all-target-libgcc && $(MAKE) install-target-libgcc
 
 # unpack source code
 
