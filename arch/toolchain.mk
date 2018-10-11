@@ -9,17 +9,19 @@
 
 BINUTILS_VER	= 2.29.1
 GCC_VER			= 7.3.0
-#6.4.0 error in libssp/libquad
+GDB_VER			= 7.11.1
 
 # packages
 
 BINUTILS		= binutils-$(BINUTILS_VER)
 GCC				= gcc-$(GCC_VER)
+GDB				= gdb-$(GDB_VER)
 
 # source archives
 
 BINUTILS_GZ		= $(BINUTILS).tar.xz
 GCC_GZ			= $(GCC).tar.xz
+GDB_GZ			= $(GDB).tar.xz
 
 # directories
 
@@ -44,6 +46,8 @@ GCC_CFG			= $(BINUTILS_CFG) --enable-languages="c" \
 					--without-headers --with-newlib \
 					--disable-bootstrap 
 
+GDB_CFG			= $(BINUTILS_CFG)
+
 # build cross compiler (local)
 
 binutils: $(SRC)/$(BINUTILS)/configure
@@ -57,11 +61,18 @@ gcc: $(SRC)/$(GCC)/configure
 			$(MAKE) -j4 all-gcc && $(MAKE) install-gcc &&\
 			$(MAKE) -j4 all-target-libgcc && $(MAKE) install-target-libgcc
 
+gdb: $(SRC)/$(GDB)/configure
+	rm -rf $(TMP)/gdb ; mkdir $(TMP)/gdb ; cd $(TMP)/gdb ;\
+		$(XPATH) $< $(CFG_ALL) $(GDB_CFG) &&\
+			$(MAKE) -j4 && $(MAKE) install
+
 # unpack source code
 
 $(SRC)/$(BINUTILS)/configure: $(GZ)/binutils/$(BINUTILS_GZ)
 	cd $(SRC) ; xzcat $< | tar x && touch $@
 $(SRC)/$(GCC)/configure: $(GZ)/gcc/$(GCC_GZ)
+	cd $(SRC) ; xzcat $< | tar x && touch $@
+$(SRC)/$(GDB)/configure: $(GZ)/gdb/$(GDB_GZ)
 	cd $(SRC) ; xzcat $< | tar x && touch $@
 
 # make directories
