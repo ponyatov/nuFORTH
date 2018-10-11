@@ -2,6 +2,8 @@
 *.swp
 *.log
 
+*.o
+
 *.bc
 
 *.lexer.*

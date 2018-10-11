@@ -9,3 +9,9 @@
 # make -f toolchain.mk
 ```
 
+## boot using Multiboot specification on x86
+
+https://www.gnu.org/software/grub/manual/multiboot/multiboot.html
+
+https://www.gnu.org/software/grub/manual/multiboot/html_node/Example-OS-code.html
+

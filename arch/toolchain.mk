@@ -8,7 +8,8 @@
 # versions
 
 BINUTILS_VER	= 2.29.1
-GCC_VER			= 6.4.0
+GCC_VER			= 7.3.0
+#6.4.0 error in libssp/libquad
 
 # packages
 
@@ -37,16 +38,14 @@ CFG_ALL 		= --disable-nls --prefix=$(CROSS)
 
 BINUTILS_CFG	= --with-sysroot=$(SYS) --enable-lto --target=$(TARGET)
 
-GCC_CFG			= $(BINUTILS_CFG) --without-libc --with-newlib --enable-languages="c"
+GCC_CFG			= $(BINUTILS_CFG) --without-headers --with-newlib --enable-languages="c"
 
 # build cross compiler (local)
 
-gcc: $(CROSS)/bin/$(TARGET)-gcc
+gcc: $(CROSS)/bin/$(TARGET)-gcc binutils
 $(CROSS)/bin/$(TARGET)-gcc: $(SRC)/$(GCC)/configure
 	rm -rf $(TMP)/gcc ; mkdir $(TMP)/gcc ; cd $(TMP)/gcc ;\
-		$(XPATH) $< $(CFG_ALL) $(GCC_CFG) | head -n11
-#&& $(MAKE) && $(MAKE) install
-
+		$(XPATH) $< $(CFG_ALL) $(GCC_CFG) && $(MAKE) && $(MAKE) install
 
 binutils: $(CROSS)/bin/$(TARGET)-ld
 $(CROSS)/bin/i386-elf-ld: $(SRC)/$(BINUTILS)/configure
