@@ -1,3 +1,4 @@
 all:
-	$(MAKE) -f toolchain.mk dirs binutils gcc gdb
+	$(MAKE) -f toolchain.mk gdb
+# dirs binutils gcc gdb
 

@@ -32,6 +32,11 @@ SRC		= $(TMP)/src
 SYS		= $(CWD)/sysroot
 CROSS	= $(CWD)/cross
 
+# make directories
+
+dirs:
+	mkdir -p $(GZ) $(TMP) $(SRC) $(SYS) $(CROSS)
+
 # configure
 
 XPATH			= PATH=$(CROSS)/bin:$(PATH)
@@ -74,8 +79,4 @@ $(SRC)/$(GCC)/configure: $(GZ)/gcc/$(GCC_GZ)
 	cd $(SRC) ; xzcat $< | tar x && touch $@
 $(SRC)/$(GDB)/configure: $(GZ)/gdb/$(GDB_GZ)
 	cd $(SRC) ; xzcat $< | tar x && touch $@
-
-# make directories
-dirs:
-	mkdir -p $(GZ) $(TMP) $(SRC) $(SYS) $(CROSS)
 
