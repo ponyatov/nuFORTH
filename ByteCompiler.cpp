@@ -43,3 +43,9 @@ void Ldefine(std::string *name) {
 			store(*it,Cp);
 }
 
+void Wdefine(std::string *name) {
+	CELL lfa = Cp; compile(fetch(0x0006)); store(0x0006,lfa);	// lfa
+	Acompile(name->c_str());
+	Ldefine(name);
+}
+

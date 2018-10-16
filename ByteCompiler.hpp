@@ -31,6 +31,9 @@ extern void Lcompile(std::string *name);
 /// @brief define label
 extern void Ldefine(std::string *name);
 
+/// @brief define new word
+extern void Wdefine(std::string *name);
+
 /// @}
 
 /// @brief lexer interface

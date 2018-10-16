@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 /**
 	@defgroup config Configuration
@@ -114,6 +115,9 @@ extern void Bcompile(BYTE byte);
 
 /** @brief `, ( cell -- )` compile cell */
 extern void compile(CELL cell);
+
+/** @brief compile ASCIIZ string */
+extern void Acompile(const char* str);
 
 /** @} */
 

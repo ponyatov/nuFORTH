@@ -4,15 +4,26 @@
 # compile this system-independent to bytecode image
 # (you can test it on Linux host with .VM interpreter)
 
-			nop
-			jmp		INIT
+##################### vocabulary header #######################
+
+_entry:		call	INIT
+			bye
+
+LATEST:		nop nop nop nop \ 0006:x4 bytes
+
+:FORTH ( -- ) ; \ vocabulary header
+			
+###############################################################
+		
 BACKLABEL:
 			bye
 			call	BACKLABEL
-		
-INIT:		nop
+
+:INIT ( -- ) \ system entry point
+			nop
 			call	SUBR
-			bye
+			jmp		BACKLABEL
+;
 
 SUBR:		ret
 

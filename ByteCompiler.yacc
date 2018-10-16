@@ -23,6 +23,7 @@ REPL :
 | REPL CMD0			{ Bcompile($2); }				// no-op commands
 
 | REPL CMD1 SYM		{ Bcompile($2); Lcompile($3); }	// jmp/call to label
+| REPL COLON SYM	{ Wdefine($3); }				// new word define
 | REPL SYM COLON	{ Ldefine($2); }				// label define
 
 | REPL SAVE BCFILE	{ save($3); }					// save comiled .bc to file

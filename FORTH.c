@@ -23,6 +23,12 @@ void compile(CELL cell) {
 	store(Cp,cell); Cp += CELLsz;
 }
 
+void Acompile(const char* str) {
+	ssize_t L = strlen(str);
+	Bcompile(L);
+	for (int i=0;i<L;i++) Bcompile(str[i]);
+}
+
 void Bstore(CELL addr, BYTE byte) {
 	M[addr] = byte;
 }

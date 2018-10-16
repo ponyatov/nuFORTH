@@ -11,7 +11,8 @@
 
 %%
 
-#[^\n]*			{}						// line comment
+[#\\][^\n]*		{}						// \ line # comment
+\(.*?\)			{}						// ( block comment )
 [ \t\r\n]+		{}						// drop spaces
 
 nop				cmd0(op_NOP)
@@ -20,13 +21,14 @@ bye				cmd0(op_BYE)
 jmp				cmd1(op_JMP)
 call			cmd1(op_CALL)
 ret				cmd0(op_RET)
+\;				cmd0(op_RET)
 
 ":"				{ return COLON; }
 \.vm			{ return dotVM; }
 \.save			{ return SAVE; }
 [A-Z0-9_]+\.bc	{ yylval.bcfile = yytext; return BCFILE; }
 
-[A-Z0-9_]+		{ yylval.sym = new std::string(yytext); return SYM; }
+[A-Za-z0-9_]+	{ yylval.sym = new std::string(yytext); return SYM; }
 
 .				{yyerror("lexer");}		// undetected char
 
