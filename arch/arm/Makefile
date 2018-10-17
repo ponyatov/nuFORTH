@@ -1,4 +1,4 @@
-all: dirs libs0
+toolchain: dirs libs0 binutils gcc0
 
 CPU		= arm926ej-s
 HW		= none
