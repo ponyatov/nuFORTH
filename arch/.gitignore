@@ -1,2 +1,6 @@
 cross/
 src/
+
+*.o
+*.elf
+

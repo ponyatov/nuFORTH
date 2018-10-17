@@ -193,7 +193,8 @@ isl0: $(SRC)/$(ISL)/configure
 
 ## @brief binutils options for bare-metal build
 CFG_BINUTILS	= --with-sysroot=$(SYSROOT) --with-native-system-header-dir=/include \
-				  --enable-lto --target=$(TARGET) $(CFG_CPU) \
+				  --enable-lto --target=$(TARGET) $(CFG_CPU)
+
 # isl
 CFG_BINUTILS	+= $(CFG_WITH_LIBS)
 
