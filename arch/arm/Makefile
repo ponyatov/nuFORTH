@@ -12,10 +12,19 @@ CFG_CPU += --with-cpu=$(CPU)
 -include ../toolchain.mk
 
 TRG	= $(CROSS)/bin/$(TARGET)
-CC = $(TRG)-gcc
-AS = $(TRGT)-as
-LD = $(TRGT)-ld
 
-hello.elf: hello.c
-	$(CC) -c -o $@ $<
+CC = $(TRG)-gcc
+AS = $(TRG)-as
+LD = $(TRG)-ld
+
+#CFLAGS += -nostdlib
+CFLAGS += -I$(CROSS)/lib/gcc/$(TARGET)/$(GCC_VER)/include
+
+hello.elf: hello_s.o hello_c.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+hello_c.o: hello.c Makefile
+	$(CC) $(CFLAGS) -c -o $@ $<
+hello_s.o: hello.S Makefile
+	$(CC) $(CFLAGS) -c -o $@ $<
 
