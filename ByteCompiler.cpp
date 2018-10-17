@@ -13,6 +13,7 @@ void yyerror(std::string msg) {
 int main() { return yyparse(); }
 
 void save(char* filename) {
+	store(_HERE,Cp);
 	FILE *img = fopen(filename,"wb"); assert(img);
 	assert ( fwrite(M,1,Cp,img) == Cp );
 	fclose(img);	
@@ -44,8 +45,11 @@ void Ldefine(std::string *name) {
 }
 
 void Wdefine(std::string *name) {
-	CELL lfa = Cp; compile(fetch(0x0006)); store(0x0006,lfa);	// lfa
-	Acompile(name->c_str());
-	Ldefine(name);
+	CELL lfa = Cp;								// \	LFA
+	compile(fetch(_LATEST));
+//	store(_LATEST,lfa);							// /
+	Bcompile(0x00);								// 		AFA
+	Acompile(name->c_str());					// 		NFA
+	Ldefine(name);								//		CFA	(labeled)
 }
 

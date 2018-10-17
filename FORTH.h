@@ -121,6 +121,18 @@ extern void Acompile(const char* str);
 
 /** @} */
 
+/** @defgroup vocstruct
+	@brief vocabulary structure */
+
+/** address of entry point variable (first `call _entry` command parameter ) */
+#define _ENTRY	0x0001
+
+/** @ref Cp compiler register saved/init value */
+#define _HERE	(_ENTRY+CELLsz+1)
+
+/** address of last defined vocabulary entity (variable value) */
+#define _LATEST	(_HERE+CELLsz)
+
 /** @defgroup vmop command opcodes
 	@ingroup vm
 	@brief bytecode opcodes

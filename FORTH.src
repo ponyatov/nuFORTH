@@ -6,12 +6,12 @@
 
 ##################### vocabulary header #######################
 
-_entry:		call	INIT
+_ENTRY:		call	INIT
 			bye
+_HERE:		cell	0
+_LATEST:	cell	0
 
-LATEST:		nop nop nop nop \ 0006:x4 bytes
-
-:FORTH ( -- ) ; \ vocabulary header
+:FORTH ( -- ) ;		\ main vocabulary
 			
 ###############################################################
 		
@@ -21,11 +21,11 @@ BACKLABEL:
 
 :INIT ( -- ) \ system entry point
 			nop
-			call	SUBR
+			call	FWDSUBR
 			jmp		BACKLABEL
 ;
 
-SUBR:		ret
+FWDSUBR:	ret
 
 .save FORTH.bc
 .vm

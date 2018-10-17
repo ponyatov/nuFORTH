@@ -8,12 +8,14 @@
 %}
 
 %defines %union {
-	uint8_t cmd0; uint32_t cmd1;
-	char* bcfile; std::string* sym; }
+	BYTE cmd0; CELL cmd1;
+	char* bcfile; std::string* sym; CELL num; }
 
 %token <cmd0> CMD0
 %token <cmd1> CMD1
 %token <sym> SYM
+%token DCELL
+%token <num> NUM
 %token COLON
 %token SAVE dotVM
 %token <bcfile> BCFILE
@@ -25,6 +27,8 @@ REPL :
 | REPL CMD1 SYM		{ Bcompile($2); Lcompile($3); }	// jmp/call to label
 | REPL COLON SYM	{ Wdefine($3); }				// new word define
 | REPL SYM COLON	{ Ldefine($2); }				// label define
+
+| REPL DCELL NUM	{ compile($3); }
 
 | REPL SAVE BCFILE	{ save($3); }					// save comiled .bc to file
 | REPL dotVM		{ DUMP(); VM(); }				// run VM
