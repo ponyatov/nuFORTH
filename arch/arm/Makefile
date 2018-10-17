@@ -1,4 +1,11 @@
-all:
-	$(MAKE) -f toolchain.mk gdb
-# dirs binutils gcc gdb
+all: dirs libs0
+
+CPU		= arm926ej-s
+HW		= none
+ARCH	= arm
+TARGET	= $(ARCH)-$(HW)-eabi
+
+CFG_CPU += --with-cpu=$(CPU)
+
+-include ../toolchain.mk
 
