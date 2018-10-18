@@ -3,4 +3,5 @@ src/
 
 *.o
 *.elf
+*.dis
 
