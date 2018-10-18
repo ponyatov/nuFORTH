@@ -1,5 +1,6 @@
 .PHONY: hello
 hello: hello.elf
+	xterm -e qemu-system-arm -M versatilepb -kernel $<
 
 toolchain: dirs libs0 binutils gcc0
 
@@ -19,11 +20,12 @@ CFLAGS += -nostdlib
 CC = $(TRG)-gcc
 AS = $(TRG)-as
 LD = $(TRG)-ld
+OD = $(TRG)-objdump
 
 CFLAGS += -I$(CROSS)/lib/gcc/$(TARGET)/$(GCC_VER)/include
 
 hello.elf: hello_s.o hello_c.o
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -Thello.ld -o $@ $^ && $(OD) -x -d $@ > $@.dis
 
 hello_c.o: hello.c Makefile
 	$(CC) $(CFLAGS) -c -o $@ $<
