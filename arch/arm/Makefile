@@ -1,6 +1,6 @@
 .PHONY: hello
 hello: hello.elf
-	xterm -e qemu-system-arm -M versatilepb -kernel $<
+	xterm -e qemu-system-arm -M versatilepb -m 1M -nographic -kernel $<
 
 toolchain: dirs libs0 binutils gcc0
 
@@ -12,6 +12,8 @@ TARGET	= $(ARCH)-$(HW)-eabi
 CFG_CPU += --with-cpu=$(CPU)
 
 -include ../toolchain.mk
+
+CFLAGS += -mcpu=$(CPU)
 
 TRG	= $(CROSS)/bin/$(TARGET)
 TRG = $(TARGET)
@@ -25,7 +27,7 @@ OD = $(TRG)-objdump
 CFLAGS += -I$(CROSS)/lib/gcc/$(TARGET)/$(GCC_VER)/include
 
 hello.elf: hello_s.o hello_c.o
-	$(CC) $(CFLAGS) -Thello.ld -o $@ $^ && $(OD) -x -d $@ > $@.dis
+	$(CC) $(CFLAGS) -T hello.ld -o $@ $^ && $(OD) -x -d -s $@ > $@.dis
 
 hello_c.o: hello.c Makefile
 	$(CC) $(CFLAGS) -c -o $@ $<
