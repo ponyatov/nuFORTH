@@ -23,6 +23,9 @@ call				cmd1(op_CALL)
 ret					cmd0(op_RET)
 \;					cmd0(op_RET)
 
+key					cmd0(op_KEY)
+emit				cmd0(op_EMIT)
+
 cell				{ return DCELL; }
 
 ":"					{ return COLON; }

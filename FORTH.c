@@ -84,6 +84,20 @@ void RET() {
 	assert(Rp>0); Ip = R[--Rp]; assert(Ip<Cp);
 }
 
+void KEY() {
+#ifdef VM_TRACELOG
+	printf("key\n");
+#endif
+	D[Dp++] = getchar();
+}
+
+void EMIT() {
+#ifdef VM_TRACELOG
+	printf("key\t.2X",D[Dp-1]);
+#endif
+	putchar(D[--Dp]);
+}
+
 void DUMP() {
 	char dumpascii[] = "0123456789ABCDEF";		/* text representation    */
 	CELL addr=0;								/* current memory address */
@@ -114,11 +128,13 @@ void VM() {
 			printf("\n%.8X:\t%.2X\t",Ip-1,op);
 		#endif
 		switch (op) {			/* we'll move to command function table later */
-			case op_NOP:  NOP();  break;
-			case op_BYE:  BYE();  break;
-			case op_JMP:  JMP();  break;
-			case op_CALL: CALL(); break;
-			case op_RET:  RET();  break;
+			case op_NOP:	NOP();	break;
+			case op_BYE:	BYE();	break;
+			case op_JMP:	JMP();	break;
+			case op_CALL:	CALL();	break;
+			case op_RET:	RET();	break;
+			case op_KEY:	KEY();	break;
+			case op_EMIT:	EMIT();	break;
 			default:
 			#ifdef VM_TRACELOG
 			printf("\t<undefined opcode>\n\n");

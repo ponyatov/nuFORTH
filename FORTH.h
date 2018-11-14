@@ -138,16 +138,48 @@ extern void Acompile(const char* str);
 	@brief **bytecode opcodes**
 	@{							*/
 
-#define	op_NOP	0x00
-#define op_BYE	0xFF
+#define	op_NOP		0x00
+#define op_BYE		0xFF
 
-#define op_JMP	0x01
-#define op_qJMP 0x02
-#define op_CALL 0x03
-#define op_RET  0x04
+/** @name control flow
+ * @{							*/
+
+#define op_JMP		0x01
+#define op_qJMP 	0x02
+#define op_CALL 	0x03
+#define op_RET  	0x04
+
+/** @}							*/
+
+/** @name stack
+ * @{							*/
+
+#define op_LIT		0x05
+
+#define op_DUP		0x10
+#define op_DROP		0x11
+#define op_SWAP		0x12
+#define op_OVER		0x13
+#define op_ROT		0x14
+#define op_PRESS	0x15
+
+/** @}							*/
+
+/** @name input/output
+ * @{							*/
+
+#define op_KEY		0x20
+#define op_EMIT		0x21
+
+/** @}							*/
+
+/** @name debug
+ * @{							*/
 
 #define op_QUEST	0xD1
 #define op_DUMP		0xD1
+
+/** @}							*/
 
 /** @defgroup vmcmd command functions
 	@ingroup vm

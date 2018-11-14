@@ -1,11 +1,13 @@
 
-all: FORTH.bc
+all: test.bc.log FORTH.bc
 
 test: test.bc.log
 test.bc.log: test.bc
 
-%.bc: %.src ./ByteCompiler
+test.bc: test.src ./ByteCompiler
 	./ByteCompiler < $< > $@.log
+FORTH.bc: FORTH.src ./ByteCompiler
+	./ByteCompiler < $<
 
 C += FORTH.c ByteCompiler.cpp ByteCompiler.parser.cpp ByteCompiler.lexer.cpp
 H += FORTH.h ByteCompiler.hpp ByteCompiler.parser.hpp

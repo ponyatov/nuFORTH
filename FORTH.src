@@ -17,8 +17,9 @@ _LATEST:	cell	0
 ;
 
 :INTERPRET
-			bye
-			call		INTERPRET
+			key
+			emit
+			jmp		INTERPRET
 ;
 
 .save FORTH.bc
