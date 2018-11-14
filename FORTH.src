@@ -4,28 +4,22 @@
 # compile this system-independent to bytecode image
 # (you can test it on Linux host with .VM interpreter)
 
-##################### vocabulary header #######################
+########################### vocabulary header #################################
 
-_ENTRY:		call	INIT
-			bye
+_ENTRY:		jmp		INIT
 _HERE:		cell	0
 _LATEST:	cell	0
 
 :FORTH ( -- ) ;		\ main vocabulary
 			
-###############################################################
-		
-BACKLABEL:
-			bye
-			call	BACKLABEL
-
 :INIT ( -- ) \ system entry point
-			nop
-			call	FWDSUBR
-			jmp		BACKLABEL
+			jmp		INTERPRET
 ;
 
 FWDSUBR:	ret
+
+INTERPRET:
+			call		INTERPRET
 
 .save FORTH.bc
 .vm

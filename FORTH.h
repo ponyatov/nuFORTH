@@ -135,7 +135,7 @@ extern void Acompile(const char* str);
 
 /** @defgroup vmop command opcodes
 	@ingroup vm
-	@brief bytecode opcodes
+	@brief **bytecode opcodes**
 	@{							*/
 
 #define	op_NOP	0x00

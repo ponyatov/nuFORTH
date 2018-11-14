@@ -11,31 +11,31 @@
 
 %%
 
-[#\\][^\n]*		{}						// \ line # comment
-\(.*?\)			{}						// ( block comment )
-[ \t\r\n]+		{}						// drop spaces
+[#\\][^\n]*			{}						// \ line # comment
+\(.*?\)				{}						// ( block comment )
+[ \t\r\n]+			{}						// drop spaces
 
-nop				cmd0(op_NOP)
-bye				cmd0(op_BYE)
+nop					cmd0(op_NOP)
+bye					cmd0(op_BYE)
 
-jmp				cmd1(op_JMP)
-call			cmd1(op_CALL)
-ret				cmd0(op_RET)
-\;				cmd0(op_RET)
+jmp					cmd1(op_JMP)
+call				cmd1(op_CALL)
+ret					cmd0(op_RET)
+\;					cmd0(op_RET)
 
-cell			{ return DCELL; }
+cell				{ return DCELL; }
 
-":"				{ return COLON; }
-\.vm			{ return dotVM; }
-\.save			{ return SAVE; }
-[A-Z0-9_]+\.bc	{ yylval.bcfile = yytext; return BCFILE; }
+":"					{ return COLON; }
+\.vm				{ return dotVM; }
+\.save				{ return SAVE; }
+[A-Za-z0-9_]+\.bc	{ yylval.bcfile = yytext; return BCFILE; }
 
-0x[0-9A-Fa-f]+	{ yylval.num = strtol(&yytext[2],NULL,0x10); return NUM; }
-[0-9]+			{ yylval.num = strtol(&yytext[0],NULL,0x0A); return NUM; }
+0x[0-9A-Fa-f]+		{ yylval.num = strtol(&yytext[2],NULL,0x10); return NUM; }
+[0-9]+				{ yylval.num = strtol(&yytext[0],NULL,0x0A); return NUM; }
 
-[A-Za-z0-9_]+	{ yylval.sym = new std::string(yytext); return SYM; }
+[A-Za-z0-9_]+		{ yylval.sym = new std::string(yytext); return SYM; }
 
-.				{yyerror("lexer");}		// undetected char
+.					{yyerror("lexer");}		// undetected char
 
 %%
 

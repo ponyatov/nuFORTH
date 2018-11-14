@@ -1,7 +1,11 @@
-all: FORTH.bc
+
+all: test.bc.log
+
+test.bc.log: test.bc
+test.bc: test.src ./ByteCompiler
+	./ByteCompiler < $< > $@.log && hexdump -C $@ >> $@.log
 
 FORTH.bc: FORTH.src ./ByteCompiler
-	./ByteCompiler < $< > $<.log && hexdump -C $@ >> $<.log
 
 C += FORTH.c ByteCompiler.cpp ByteCompiler.parser.cpp ByteCompiler.lexer.cpp
 H += FORTH.h ByteCompiler.hpp ByteCompiler.parser.hpp

@@ -1,0 +1,23 @@
+########################### vocabulary header #################################
+
+_ENTRY:		call	INIT
+			bye
+_HERE:		cell	0
+_LATEST:	cell	0
+
+######################## forward/backward labels test #########################
+		
+BACKLABEL:
+			bye
+			call	BACKLABEL
+
+:INIT ( -- ) \ system entry point
+			nop
+			call	FWDSUBR
+			jmp		BACKLABEL
+;
+
+FWDSUBR:	ret
+
+.save test.bc
+.vm
