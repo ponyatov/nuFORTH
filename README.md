@@ -38,3 +38,9 @@ but VM command system open for
 * Cortex-M microcontrollers (STM32F)
 * QEMU: `-arm926` , `-mips32` and `-x86`
 
+### used for this Quora/StackOverflow questions:
+
+* https://www.quora.com/Which-is-a-better-language-to-write-interpret
+* https://www.quora.com/How-do-I-write-a-Forth-interpreter
+* https://www.quora.com/What-is-a-piece-of-code-that-you-retain-to-be-mastery-done
+
