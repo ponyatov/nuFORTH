@@ -16,10 +16,10 @@ _LATEST:	cell	0
 			jmp		INTERPRET
 ;
 
-FWDSUBR:	ret
-
-INTERPRET:
+:INTERPRET
+			bye
 			call		INTERPRET
+;
 
 .save FORTH.bc
 .vm

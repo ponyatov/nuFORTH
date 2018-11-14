@@ -85,12 +85,24 @@ void RET() {
 }
 
 void DUMP() {
-	for (CELL addr=0;addr < Cp; addr++) {
-		if (addr % 0x10 == 0) printf("\n%.8X:\t",addr);
-		else if (addr % 0x10 == 8) printf("- ");
-		printf("%.2X ",M[addr]);
+	char dumpascii[] = "0123456789ABCDEF";		/* text representation    */
+	CELL addr=0;								/* current memory address */
+	for (addr=0; addr < Cp; addr++) {
+		/* line begins if addr on paragraph bound */
+		if (addr % 0x10 == 0) {
+			if (addr>0) { printf("  %s",dumpascii); dumpascii[0] = 0; }
+			printf("\n%.8X  ",addr);
+		}
+		else if (addr % 0x10 == 8) printf(" ");		/* mid split marker	*/
+		printf("%.2X ",M[addr]);					/* hex byte			*/
+		/* collect ascii symbols */
+		if ( M[addr]>=' ' & M[addr]<0x80 )	dumpascii[addr%0x10] = M[addr];
+		else								dumpascii[addr%0x10] = '.';
+		/* move end of line */
+		dumpascii[addr%0x10+1] = 0;
 	}
-	printf("\n\n");
+	for (int i=0; i<(0x10-addr%0x10);i++) printf("   ");	/* padding 		*/
+	printf("  %s\n\n",dumpascii);							/* rest of line */
 }
 
 void VM() {

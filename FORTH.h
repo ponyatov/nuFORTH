@@ -29,8 +29,8 @@
   	@{
  */
 
-/** @brief print trace log while program excutes in VM emulator */
-#define VM_TRACELOG
+/** @brief print trace log while program executes in VM emulator */
+//#define VM_TRACELOG
 
 /** @} */
 
