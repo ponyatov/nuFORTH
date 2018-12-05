@@ -38,7 +38,7 @@ CREATE M Msz ALLOT				\ allocate M main memory buffer
 0x00 cmd0 nop					\ do nothing
 0xFF cmd0 bye					\ stop the system
 
-bye
+END
 
 words
 
