@@ -33,3 +33,12 @@ $ cd nuFORTH/gforth
 $ mingw32-make
 ```
 
+### to run without any build tools
+
+- download
+  * https://github.com/ponyatov/nuFORTH/blob/dev/gforth/bcFORTH.fs
+- run it
+```
+$ gforth bcFORTH.fs
+```
+
