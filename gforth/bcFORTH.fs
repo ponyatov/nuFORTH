@@ -18,10 +18,33 @@ words							\ will print only target compiler vocabulary
 
 cr Msz . Rsz . Dsz . cr cr
 
+CREATE M Msz ALLOT				\ allocate M main memory buffer
+
+0 value THERE					\ target compiler pointer
+
+: TC! ( byte -- ) \ compile single byte
+	( byte ) M THERE + C!		\ compile byte to target memory
+	THERE 1+ TO THERE			\ increment TC pointer
+;
+
+: cmd0 ( op -- )				\ VM command w/o operands (single byte opcode)
+	CREATE C,
+	DOES>  C@ TC!				\ compile opcode to target memory
+;
+
+								\ \\\\\\\\\\\\\\\\\\\\\\ VM primitive commands
+0x00 cmd0 nop					\ do nothing
+0xFF cmd0 bye					\ stop the system
+
+bye
+
 words
 
+0 value file.bc
 : SAVE ( filename.bc -- ) \ write bytecode to image file
-	( filename ) w/o create-file 
+	( filename ) w/o create-file throw to file.bc
+		M THERE file.bc write-file throw
+		file.bc close-file throw
 ;
 
 S" FORTH.bc" SAVE BYE			\ write compiled system and exit (batch build)
