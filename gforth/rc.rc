@@ -1,2 +1,2 @@
 #!/bin/sh
-gvim -p Makefile bcFORTH.fs README.txt
+gvim -p Makefile bcFORTH.fs README.md

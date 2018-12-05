@@ -1,1 +1,1 @@
-@gvim -p bcFORTH.fs README.txt Makefile bat.bat
+@gvim -p bcFORTH.fs README.md Makefile bat.bat
