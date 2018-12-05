@@ -5,8 +5,8 @@
 https://groups.google.com/forum/#!topic/comp.lang.forth/eYiPcW8uPRY
 
 It is a byte-code based FORTH
-written in gforth (as most known portable system) and runs
-inside it without any external tools.
+- written in gforth (as the most known portable system) and
+- runs inside it without any external tools.
 
 Use this manual to start with gforth:
 * https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/index.html
