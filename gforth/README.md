@@ -1,10 +1,12 @@
 # bcFORTH
-### bytecode-based FORTH in GNU Forth
+## bytecode-based FORTH in GNU Forth
+### This is a meta way to write bytecode-based FORTH
 
 https://groups.google.com/forum/#!topic/comp.lang.forth/eYiPcW8uPRY
 
-This is a meta way to write bytecode-based FORTH
-written in gforth (as most known portable system) without any external tools.
+It is a byte-code based FORTH
+written in gforth (as most known portable system) and runs
+inside it without any external tools.
 
 Use this manual to start with gforth:
 * https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/index.html
