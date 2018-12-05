@@ -22,15 +22,17 @@ CREATE M Msz ALLOT				\ allocate M main memory buffer
 
 0 value THERE					\ target compiler pointer
 
-: TC! ( byte -- ) \ compile single byte
+: TC, ( byte -- ) \ compile single byte
 	( byte ) M THERE + C!		\ compile byte to target memory
 	THERE 1+ TO THERE			\ increment TC pointer
 ;
 
 : cmd0 ( op -- )				\ VM command w/o operands (single byte opcode)
 	CREATE C,
-	DOES>  C@ TC!				\ compile opcode to target memory
+	DOES>  TC,					\ compile opcode to target memory
 ;
+
+: END BYE ;						\ redefine gforth system bye before command
 
 								\ \\\\\\\\\\\\\\\\\\\\\\ VM primitive commands
 0x00 cmd0 nop					\ do nothing
@@ -47,5 +49,5 @@ words
 		file.bc close-file throw
 ;
 
-S" FORTH.bc" SAVE BYE			\ write compiled system and exit (batch build)
+S" FORTH.bc" SAVE END			\ write compiled system and exit (batch build)
 
