@@ -20,6 +20,8 @@ Use this manual to start with gforth:
 
 - **git**
   * https://git-scm.com/
+- **(g)Vim**
+  * https://www.vim.org/download.php
 
 ## Install (Windows/MinGW)
 
