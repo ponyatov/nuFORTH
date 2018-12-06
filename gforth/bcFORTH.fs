@@ -12,13 +12,13 @@ VOCABULARY TC					\ create target compiler vocabulary
 
 ONLY FORTH ALSO TC DEFINITIONS	\ configure vocabulary search order/compiling
 
-0x1000 constant Msz				\ main memory size (bytes)
-0x100  constant Rsz				\ return stack size (cells)
-0x10   constant Dsz				\ data stack size (cells)
+0x1000 value Msz				\ main memory size (bytes)
+0x100  value Rsz				\ return stack size (cells)
+0x10   value Dsz				\ data stack size (cells)
 
-words							\ will print only target compiler vocabulary
+words cr						\ will print only target compiler vocabulary
 
-cr Msz . Rsz . Dsz . cr cr
+cr ." M[ " Msz . ." ] Rsz[ " Rsz . ." ] Dsz=[ " Dsz . ." ]" cr
 
 CREATE M Msz ALLOT				\ allocate M main memory buffer
 
@@ -30,22 +30,29 @@ CREATE M Msz ALLOT				\ allocate M main memory buffer
 
 0 value Cp						\ target compiler pointer
 
-4 constant TCELL				\ byte code cell size: default is 32-bit only
+4 value TCELL					\ byte code cell size: default is 32-bit only
 
-: TC@ ( addr -- byte )			\ \\\\\ fetch byte from target compiler memory
+: .32bit 4 TO TCELL ;			\ default is full-size 32 bit
+: .16bit 2 TO TCELL ;			\ 16 bit is much more useful for tiny embedded
+: .8bit  1 TO TCELL ;			\ experimental narrow for IoT and sensor dust
+
+: TB@ ( addr -- byte )			\ \\\\\ fetch byte from target compiler memory
 	M + C@
 ;
 
-: TC! ( byte addr -- )			\ \\\\\\\ store byte to target compiler memory
+: TB! ( byte addr -- )			\ \\\\\\\ store byte to target compiler memory
 	M + C!
 ;
 
 : T! ( cell addr -- )			\ \\\\\\\\\\\\\\\\\\\\\\\\\\ store cell to M[]
-	M +  !
+	M +
+	TCELL 4 = IF  ! THEN
+	TCELL 2 = IF W! THEN
+	TCELL 1 = IF C! THEN
 ;
 
-: TC, ( byte -- ) 				\ \\\\\\\\\\\\\\\\\\\\\\\\ compile single byte
-	( byte ) Cp TC!				\ compile byte to target memory
+: TB, ( byte -- ) 				\ \\\\\\\\\\\\\\\\\\\\\\\\ compile single byte
+	( byte ) Cp TB!				\ compile byte to target memory
 	Cp 1+ TO Cp					\ increment TC pointer
 ;
 
@@ -56,12 +63,12 @@ CREATE M Msz ALLOT				\ allocate M main memory buffer
 
 : cmd0 ( op -- )				\ VM command w/o operands (single byte opcode)
 	CREATE C,
-	DOES>  @ TC,				\ compile opcode to target memory
+	DOES>  @ TB,				\ compile opcode to target memory
 ;
 
 : cmd1 ( op -- )				\ VM command with single cell operand
 	CREATE C,
-	DOES>  @ TC, ( param ) T,	\ compile opcode + parameter
+	DOES>  @ TB, ( param ) T,	\ compile opcode + parameter
 ;
 
 : .end BYE ;					\ redefine gforth system bye before command
@@ -99,6 +106,8 @@ words
 ;
 
 \ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ target system code starts here
+
+.16bit 
 
 nop
 bye
