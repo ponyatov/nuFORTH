@@ -42,3 +42,10 @@ $ mingw32-make
 $ gforth bcFORTH.fs
 ```
 
+## Reference FORTH specially designed for tiny embedded
+
+Supports 
+* `.32bit`
+* reduced `.16bit`
+* experimental `.8bit` for IoT/sensor clouds
+
