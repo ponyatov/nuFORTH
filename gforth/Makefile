@@ -1,5 +1,12 @@
+
+ifeq ($(OS),Windows_NT)
+	HEXDUMP = od -t x1
+else
+	HEXDUMP = hexdump -C
+endif
+
 FORTH.bc: bcFORTH.fs Makefile
-	gforth $< && echo ; od -t x1 -w 16 $@
+	gforth $< && echo ; echo ; $(HEXDUMP) $@
 
 .PHONY: clean
 clean:

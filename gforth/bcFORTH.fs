@@ -28,26 +28,32 @@ CREATE M Msz ALLOT				\ allocate M main memory buffer
 ;
 
 : cmd0 ( op -- )				\ VM command w/o operands (single byte opcode)
-	CREATE C,
-	DOES>  TC,					\ compile opcode to target memory
+	CREATE .S C,
+	DOES>  @ TC,				\ compile opcode to target memory
 ;
 
-: END BYE ;						\ redefine gforth system bye before command
+: .end BYE ;					\ redefine gforth system bye before command
 
 								\ \\\\\\\\\\\\\\\\\\\\\\ VM primitive commands
 0x00 cmd0 nop					\ do nothing
 0xFF cmd0 bye					\ stop the system
 
-END
-
 words
 
 0 value file.bc
-: SAVE ( filename.bc -- ) \ write bytecode to image file
+: .save ( -- ) \ write bytecode to image file
+	BL WORD COUNT ( filename )
 	( filename ) w/o create-file throw to file.bc
-		M Cp file.bc write-file throw
-		file.bc close-file throw
+	M Cp file.bc write-file throw
+	file.bc close-file throw
 ;
 
-S" FORTH.bc" SAVE END			\ write compiled system and exit (batch build)
+\ code starts here
+
+nop
+bye
+
+.save FORTH.bc					\ write compiled system and exit (batch build)
+
+.end
 
