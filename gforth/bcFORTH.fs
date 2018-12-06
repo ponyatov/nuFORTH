@@ -20,11 +20,11 @@ cr Msz . Rsz . Dsz . cr cr
 
 CREATE M Msz ALLOT				\ allocate M main memory buffer
 
-0 value THERE					\ target compiler pointer
+0 value Cp						\ target compiler pointer
 
 : TC, ( byte -- ) \ compile single byte
-	( byte ) M THERE + C!		\ compile byte to target memory
-	THERE 1+ TO THERE			\ increment TC pointer
+	( byte ) M Cp + C!			\ compile byte to target memory
+	Cp 1+ TO Cp					\ increment TC pointer
 ;
 
 : cmd0 ( op -- )				\ VM command w/o operands (single byte opcode)
@@ -45,7 +45,7 @@ words
 0 value file.bc
 : SAVE ( filename.bc -- ) \ write bytecode to image file
 	( filename ) w/o create-file throw to file.bc
-		M THERE file.bc write-file throw
+		M Cp file.bc write-file throw
 		file.bc close-file throw
 ;
 
