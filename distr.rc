@@ -1,0 +1,2 @@
+#!/bin/sh
+rar a -m5 -o- -r ~/tmp/FORTH.rar ByteCompiler.cpp ByteCompiler.hpp ByteCompiler.lex ByteCompiler.yacc FORTH.c FORTH.h
