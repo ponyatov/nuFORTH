@@ -95,19 +95,26 @@ words
 0 value Ip						\ bytecode interpreter instruction pointer
 
 : .step ( -- )					\ \\\\\\\\\\\\\\\ execute single command in VM
-	cr hex Ip . decimal space
-	Ip C@ ( opcode )			\ fetch opcode
+	hex cr Ip 8 u.r space
+	Ip TB@ ( opcode )			\ fetch opcode
+	( opcode ) dup 2 u.r		\ dump opcode
 	Ip 1+ TO Ip ( Ip++ )		\ shift to next byte in M
+	decimal
+	DUP 0x00 = IF THEN			\ 0x00 nop
+	DUP 0xFF = IF BYE THEN		\ 0xFF bye
+	DROP
 ;
 
 : .vm ( -- )					\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\ run interpreter
+	cr cr
 	0 to Ip						\ reset entry point to start of the M image
 	.step						\ run single command in VM
+	cr cr
 ;
 
 \ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ target system code starts here
 
-.16bit 
+\ .16bit 
 
 nop
 bye
@@ -116,6 +123,6 @@ bye
 .save FORTH.bc					\ write compiled system and exit (batch build)
 
 \ 0 Cp .dump
-\ .vm
-.end
+ .vm
+\ .end
 
